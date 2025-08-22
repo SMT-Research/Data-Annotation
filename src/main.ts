@@ -271,7 +271,7 @@ function on_drop(e: DragEvent){
             let file = item.getAsFile()
             if(file){
                 file_name = file.name;
-                samples = await sample_loader.from_file(file, true);
+                samples = await sample_loader.from_file(file, false);
                 for(var i = 0; i < samples.length; i++){
                     if(!annotations[samples[i].hash]){
                         break;
