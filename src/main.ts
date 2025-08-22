@@ -277,7 +277,7 @@ function on_drop(e: DragEvent){
                         break;
                     }
                 }
-                show_sample_index(i);
+                show_sample_index(Math.max(i, samples.length-1));
 
                 file_input.hidden = true;
             }
