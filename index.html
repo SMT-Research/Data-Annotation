@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="graph-container">
+        <div id="resistance-container" class="chart-container">
+            <canvas id="resistance-chart" class="chart"></canvas>
+        </div>
+        <div id="voltage-container" class="chart-container">
+            <canvas id="voltage-chart" class="chart"></canvas>
+        </div>
+    </div>
+
+    <div id="side-menu">
+        <div id="status-label" class="status">...</div>
+        <div id="moisture-label" class="status wet">Wet</div>
+        <div id="counter-container">#<input id="counter" type="number" value="0"></div>
+        <div id="download-container"><img id="download" src="download.png"></div>
+        <!-- <div class="status pass">Pass</div>
+        <div class="status observe">Observe</div>
+        <div class="status fail">Fail</div>
+        <div class="status wet">Wet</div>
+        <div class="status none">Dry</div> -->
+    </div>
+
+    <div id="file-input">
+        <div id="file-input-display"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
