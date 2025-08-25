@@ -107,7 +107,13 @@ document.addEventListener('keydown', function(event) {
             if(annotation != null){
                 annotations[samples[current_graph_index].hash] = annotation;
 
-                current_graph_index++;
+                // current_graph_index++;
+                for(var i = current_graph_index; i < samples.length; i++){
+                    if(!annotations[samples[i].hash]){
+                        break;
+                    }
+                }
+                current_graph_index = Math.min(i, samples.length-1);
                 show_sample_index(current_graph_index);
             }
         }
@@ -297,4 +303,5 @@ file_input.addEventListener("drop", on_drop);
 
 setInterval(() => {
     localStorage.setItem("annotations", JSON.stringify(annotations));
+    console.log("Saved.");
 }, 30000)
