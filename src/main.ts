@@ -12,7 +12,7 @@ const resistance_canvas = document.getElementById("resistance-chart") as HTMLCan
 const voltage_canvas = document.getElementById("voltage-chart") as HTMLCanvasElement;
 
 type Annotation = {
-    status: "pass" | "observe" | "fail"
+    status: "pass" | "observe" | "fail" | "checksum"
     is_dry: boolean
     hash: string
 }
@@ -118,13 +118,15 @@ document.addEventListener('keydown', function(event) {
             }
         }
     }
-    if(event.code == "ArrowRight"){
+    if(event.code == "KeyH"){
         update_status("pass");
-    }else if(event.code == "ArrowUp"){
+    }else if(event.code == "KeyJ"){
         update_status("observe");
-    }else if(event.code == "ArrowLeft"){
+    }else if(event.code == "KeyK"){
         update_status("fail");
-    }else if(event.code == "ArrowDown"){
+    }else if(event.code == "KeyL"){
+        update_status("checksum");
+    }else if(event.code == "KeyM"){
         toggle_moisture();
     }
 
@@ -183,16 +185,18 @@ function update_counter(){
     counter.value = Math.max(0, current_graph_index).toString();
 }
 
-function update_status(status: "pass" | "observe" | "fail" | "none"){
+function update_status(status: "pass" | "observe" | "fail" | "checksum" | "none"){
     status_label.classList.remove("pass");
     status_label.classList.remove("observe");
     status_label.classList.remove("fail");
+    status_label.classList.remove("checksum");
     if(status != "none") status_label.classList.add(status);
     status_label.innerText = {
         "pass": "Pass",
         "observe": "Observe",
         "fail": "Fail",
-        "none": "..."
+        "none": "...",
+        "checksum": "Checksum"
     }[status]
 }
 
@@ -209,11 +213,11 @@ function toggle_moisture(to?: boolean){
 }
 
 function get_annotation(): Annotation | null {
-    let status: string | null = Array.from(status_label.classList).filter(x => ["pass", "observe", "fail"].includes(x))[0];
+    let status: string | null = Array.from(status_label.classList).filter(x => ["pass", "observe", "fail", "checksum"].includes(x))[0];
     let is_dry = !moisture_label.classList.contains("wet");
     if(status == undefined) return null;
     return {
-        status: status as "pass" | "observe" | "fail",
+        status: status as "pass" | "observe" | "fail" | "checksum",
         is_dry,
         hash: samples[current_graph_index].hash
     }
