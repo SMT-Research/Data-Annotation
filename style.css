@@ -71,6 +71,11 @@ body{
     background-color: rgba(255, 0, 0, 0.397);
     border-color: red;
 }
+.status.checksum{
+    color: white;
+    background-color: rgba(255, 0, 0, 0.774);
+    border-color: rgb(184, 0, 0);
+}
 .status.wet{
     background-color: rgba(0, 31, 168, 0.288);
     border-color: rgb(3, 17, 212);
