@@ -28,7 +28,7 @@ Each sample has the following structure and are stacked on top of eachother in a
 |---------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `8 bytes`     | Hash ID    | The first 8 bytes of the sha1 hash of the following data. Can be any identifier unique to the sample,  this is what's used to corelate the annotations to each sample. |
 | `4*4 bytes`   | Sensor IDs | The 4 sensor ids as unsigned 32bit integers (r1, r2, v1, v1).                                                                                                          |
-| `240*8 bytes` | X Data     | The 240 doubles representing timestamps. Used as x values for the rest of the data.                                                                                    |
+| `240*8 bytes` | X Data     | The 240 doubles representing unix timestamps. Used as x values for the rest of the data.                                                                               |
 | `240*8 bytes` | R1 Data    | The 240 doubles representing the values of this sensor.                                                                                                                |
 | `240*8 bytes` | R2 Data    | ...                                                                                                                                                                    |
 | `240*8 bytes` | V1 Data    | ...                                                                                                                                                                    |
