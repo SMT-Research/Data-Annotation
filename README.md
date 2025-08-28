@@ -33,3 +33,5 @@ Each sample has the following structure and are stacked on top of eachother in a
 | `240*8 bytes` | R2 Data    | ...                                                                                                                                                                    |
 | `240*8 bytes` | V1 Data    | ...                                                                                                                                                                    |
 | `240*8 bytes` | V2 Data    | ...                                                                                                                                                                    |
+
+See the [examples folder](https://github.com/SMT-Research/Data-Annotation/tree/main/examples) for reference.
